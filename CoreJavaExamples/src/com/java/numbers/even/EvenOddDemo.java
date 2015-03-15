@@ -47,18 +47,40 @@ public class EvenOddDemo {
 	 */
 	private static boolean evenOrOddNumber(long number){
 		
-		boolean evenFlag = false;
-		if(number % 2 == 0){
-			evenFlag = true;
-		}
-		
-		return evenFlag;
+		return (number%2 == 0);
 	}
 	
 	/**
 	 * Method to check whether the passed number is even/odd using the bitwise & operator.
 	 * 
-	 * @param number
+	 * For example, if a number is even then the pattern in binary form is XXX...X0, i.e. the first low order bit is 0 and X can be 0/1
+	 * 
+	 *  8 : 00001000
+	 * 16 : 00010000
+	 * 12 : 00001100  
+	 * 
+	 * Now binary representation of 1 is always : 00000001
+	 * 
+	 * So using the AND operation in binary
+	 * ---------------------------------------
+	 * 
+	 *  1 & 1 = 1
+	 *  0 & 0 = 0
+	 *  1 & 0 = 0
+	 *  0 & 1 = 0
+	 *  
+	 *  --------------------------------------
+	 *  
+	 *  XXX0
+	 *  0001
+	 *  ----
+	 *  0000
+	 *  
+	 *  so the equivalent decimal number of 0000 is 0;
+	 *  
+	 *  This means if (number&1) == 0 then it is an even number.
+	 * 
+	 * @param number number passed to check for even or odd
 	 */
 	private static void eventOrOddBitwise(long number){
 		
